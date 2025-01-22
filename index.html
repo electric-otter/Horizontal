@@ -190,12 +190,18 @@
     #content {
       display: none;
     }
+    h1 {
+     font-family: system-ui
+     font-weight: 400
+    }
+    p {
+     font-family: system-ui
+     font-weight: 400
+     }
   </style>
 </head>
 <body>
 
-  <!-- Fancy Button -->
-  <button class="shadow__btn" id="start-btn">Start Now</button>
 
   <!-- Loaders (shown while loading) -->
   <div id="loader1" class="loader" style="display: inline-block;">
@@ -220,8 +226,10 @@
   <div id="content">
     <h1>Welcome to Horizontal</h1>
     <p>Professional graded cloud.</p>
+    <a href="dashboard.html">
+    <button class="shadow__btn" id="start-btn">Start Now</button>
+    </a>
   </div>
-
   <script>
     // Handle button click and simulate loading process
     document.getElementById('start-btn').addEventListener('click', function() {
