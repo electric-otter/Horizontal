@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fancy Button and Loaders</title>
   <style>
-    /* From Uiverse.io by mrhyddenn */
     .shadow__btn {
       padding: 10px 20px;
       border: none;
@@ -17,9 +16,6 @@
       text-transform: uppercase;
       transition: 0.5s;
       transition-property: box-shadow;
-    }
-
-    .shadow__btn {
       background: rgb(0,140,255);
       box-shadow: 0 0 25px rgb(0,140,255);
     }
@@ -31,7 +27,6 @@
                   0 0 100px rgb(0,140,255);
     }
 
-    /* From Uiverse.io by mobinkakei */
     .loader {
       --path: #2f3545;
       --dot: #5628ee;
@@ -186,22 +181,22 @@
       margin: 0 16px;
     }
 
-    /* Hide the content initially */
     #content {
       display: none;
     }
+
     h1 {
-     font-family: system-ui
-     font-weight: 400
+     font-family: system-ui;
+     font-weight: 400;
     }
+
     p {
-     font-family: system-ui
-     font-weight: 400
+     font-family: system-ui;
+     font-weight: 400;
      }
   </style>
 </head>
 <body>
-
 
   <!-- Loaders (shown while loading) -->
   <div id="loader1" class="loader" style="display: inline-block;">
@@ -230,6 +225,7 @@
     <button class="shadow__btn" id="start-btn">Start Now</button>
     </a>
   </div>
+  
   <script>
     // Handle button click and simulate loading process
     document.getElementById('start-btn').addEventListener('click', function() {
@@ -250,7 +246,6 @@
       }, 3000); // Adjust the timeout duration as needed
     });
   </script>
-
 </body>
 </html>
 
