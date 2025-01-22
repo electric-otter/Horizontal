@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fancy Button and Loaders</title>
   <style>
+    /* From Uiverse.io by mrhyddenn */
     .shadow__btn {
       padding: 10px 20px;
       border: none;
@@ -16,6 +17,9 @@
       text-transform: uppercase;
       transition: 0.5s;
       transition-property: box-shadow;
+    }
+
+    .shadow__btn {
       background: rgb(0,140,255);
       box-shadow: 0 0 25px rgb(0,140,255);
     }
@@ -27,6 +31,7 @@
                   0 0 100px rgb(0,140,255);
     }
 
+    /* From Uiverse.io by mobinkakei */
     .loader {
       --path: #2f3545;
       --dot: #5628ee;
@@ -34,6 +39,8 @@
       width: 44px;
       height: 44px;
       position: relative;
+      display: inline-block;
+      margin: 0 16px;
     }
 
     .loader:before {
@@ -176,24 +183,14 @@
       }
     }
 
-    .loader {
-      display: inline-block;
-      margin: 0 16px;
-    }
-
+    /* Hide the content initially */
     #content {
       display: none;
     }
-
-    h1 {
-     font-family: system-ui;
-     font-weight: 400;
+    h1, p {
+      font-family: system-ui;
+      font-weight: 400;
     }
-
-    p {
-     font-family: system-ui;
-     font-weight: 400;
-     }
   </style>
 </head>
 <body>
@@ -221,34 +218,41 @@
   <div id="content">
     <h1>Welcome to Horizontal</h1>
     <p>Professional graded cloud.</p>
-    <a href="dashboard.html">
     <button class="shadow__btn" id="start-btn">Start Now</button>
-    </a>
   </div>
   
   <script>
-    // Handle button click and simulate loading process
+    // Handle button click and load content from a real API or resource
     document.getElementById('start-btn').addEventListener('click', function() {
-      // Show loaders and hide the button
+      // Show loaders while content is being fetched
       document.getElementById("loader1").style.display = "inline-block";
       document.getElementById("loader2").style.display = "inline-block";
       document.getElementById("loader3").style.display = "inline-block";
       document.getElementById("start-btn").style.display = "none";
       
-      // Simulate loading time with setTimeout
-      setTimeout(function() {
-        // Hide loaders
-        document.getElementById("loader1").style.display = "none";
-        document.getElementById("loader2").style.display = "none";
-        document.getElementById("loader3").style.display = "none";
-        // Show main content
-        document.getElementById("content").style.display = "block";
-      }, 3000); // Adjust the timeout duration as needed
+      // Simulating a real fetch for content (replace with your actual API call)
+      fetch('https://jsonplaceholder.typicode.com/posts/1')
+        .then(response => response.json())
+        .then(data => {
+          // Hide loaders and display the content
+          document.getElementById("loader1").style.display = "none";
+          document.getElementById("loader2").style.display = "none";
+          document.getElementById("loader3").style.display = "none";
+          
+          // Display the fetched content
+          document.getElementById("content").style.display = "block";
+          document.querySelector("h1").textContent = data.title;
+          document.querySelector("p").textContent = data.body;
+        })
+        .catch(error => {
+          console.error('Error loading data:', error);
+          // Handle errors and show a message
+          document.getElementById("content").style.display = "block";
+          document.querySelector("h1").textContent = 'Error';
+          document.querySelector("p").textContent = 'Unable to load content.';
+        });
     });
   </script>
-</body>
-</html>
-
 
 </body>
 </html>
